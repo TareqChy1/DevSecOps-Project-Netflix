@@ -180,7 +180,10 @@ docker run -d --name netflix -p 8081:80 netflix:latest
     sudo systemctl start jenkins
     sudo systemctl enable jenkins
     ```
-    
+    - check jenkins install perfectly:
+      ```
+      sudo service jenkins status
+      ```
     - Access Jenkins in a web browser using the public IP of your EC2 instance.
         
         publicIp:8080
