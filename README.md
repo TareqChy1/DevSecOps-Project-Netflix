@@ -744,8 +744,37 @@ That's it! You've successfully installed and set up Grafana to work with Prometh
 
 **Phase 5: Notification**
 
-1. **Implement Notification Services:**
-    - Set up email notifications in Jenkins or other notification mechanisms.
+- Email Integration With Jenkins and Plugin Setup:
+   - Install the "Email Extension" Plugin in Jenkins.
+   - Go to your Gmail and click on your profile
+   - Then click on Manage Your Google Account --> click on the security tab on the left side panel you will get this page(provide mail password).
+   - 2-step verification should be enabled.
+   - Search for the app in the search bar you will get app passwords.
+   - Click on other and provide your name and click on Generate and copy the password.
+   - In the new update, you will get a password, copy the password.
+   - Once the plugin is installed in Jenkins, click on manage Jenkins --> configure system there under the *E-mail Notification* section to configure the details.
+   - In SMTP Server provide: smtp.gmail.com
+   - click Use SMTP Authentication then provide in username'tareqfarhadbd@gmail.com', password the password got from the Google app password.
+   - click on the Use SSL option. SMTP Port: 465. Test e-mail recipient: 'tareqfarhadbd@gmail.com'.
+   - Goto Jenkins Dashboard → Manage Jenkins → Credentials → 
+   - Add your mail username and generated password.
+   - Now under the Extended E-mail Notification section configure the details.
+   - Click on Apply and save.
+   - Next, we will log in to Jenkins and start to configure our Pipeline in Jenkins
+     
+     ```
+     post {
+       always {
+          emailext attachLog: true,
+              subject: "'${currentBuild.result}'",
+              body: "Project: ${env.JOB_NAME}<br/>" +
+                  "Build Number: ${env.BUILD_NUMBER}<br/>" +
+                  "URL: ${env.BUILD_URL}<br/>",
+              to: 'postbox.aj99@gmail.com',  #change Your mail
+              attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
+          }
+     }
+     ```
 
 # Phase 6: Kubernetes
 
@@ -821,3 +850,6 @@ To deploy an application with ArgoCD, you can follow these steps, which I'll out
 
 1. **Cleanup AWS EC2 Instances:**
     - Terminate AWS EC2 instances that are no longer needed.
+  
+### Reference : 
+1. https://mrcloudbook.hashnode.dev/devsecops-netflix-clone-ci-cd-with-monitoring-email 
