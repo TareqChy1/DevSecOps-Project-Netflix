@@ -114,6 +114,7 @@ docker build --build-arg TMDB_V3_API_KEY=<your-api-key> -t netflix .
 example:
 ```
 docker build --build-arg TMDB_V3_API_KEY=151e1a34b6dd2b788db3c9670f0d6757 -t netflix .
+docker run -d --name netflix -p 8081:80 netflix:latest
 ```
 
 **Phase 2: Security**
