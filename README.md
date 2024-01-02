@@ -777,12 +777,34 @@ That's it! You've successfully installed and set up Grafana to work with Prometh
      ```
 
 # Phase 6: Kubernetes
-Reference link: https://mrcloudbook.hashnode.dev/devsecops-netflix-clone-ci-cd-with-monitoring-email#heading-step-11-kuberenetes-setup
-Creating the Amazon EKS cluster role: https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html#create-service-role
-Creating the Amazon EKS node IAM role: https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html#create-worker-node-role
+
 ## Create Kubernetes Cluster with Nodegroups
 
 In this phase, you'll set up a Kubernetes cluster with node groups. This will provide a scalable environment to deploy and manage your applications.
+
+Step 1: Aws cluster creation
+- EKS --> Clusters --> Create EKS cluster
+- In cluster configuration: Name: Netflix, Cluster service role[link](https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html#create-service-role):myAmazonEKSClusterRole
+- Click on Next
+- Select Default vpc.
+- in the subnet remove *us-east-1e*.
+- select default security group.
+- cluster endpoint access: Public.
+- Click on Next
+- Click on Next
+- Click on Next
+- Finally create.
+
+Once the cluster is created go to EKS --> Clusters --> Netflix --> Compute --> click on *Add node group*
+- Name: nodes
+- Node IAM role: AmazonEKSNodeRole ([Link](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html#create-worker-node-role))
+- Click on Next
+- Instance type: t3.medium
+- In Node group scaling configuration: Desired size: 1, Minimum size: 1, Maximum size: 1.
+- Click on Next
+- Click on Next
+- Click on Create
+
 
 ## Monitor Kubernetes with Prometheus
 
