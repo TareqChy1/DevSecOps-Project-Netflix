@@ -185,9 +185,13 @@ docker run -d --name netflix -p 8081:80 netflix:latest
       sudo service jenkins status
       ```
     - Access Jenkins in a web browser using the public IP of your EC2 instance.
-        
         publicIp:8080
-        
+    - For getting the password enter this command in the ec2 ubuntu instance:
+      
+      ```
+      sudo cat /var/lib/jenkins/secrets/initialAdminPassword 
+      ```
+      
 2. **Install Necessary Plugins in Jenkins:**
 
 Goto Manage Jenkins →Plugins → Available Plugins →
