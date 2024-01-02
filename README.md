@@ -140,7 +140,10 @@ docker run -d --name netflix -p 8081:80 netflix:latest
         sudo apt-get update
         sudo apt-get install trivy        
         ```
-        
+        to scan file using trivy
+        ```
+        trivy fs .
+        ```
         to scan image using trivy
         ```
         trivy image <imageid>
