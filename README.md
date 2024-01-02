@@ -208,26 +208,24 @@ Install below plugins
 
 ### **Configure Java and Nodejs in Global Tool Configuration**
 
-Goto Manage Jenkins → Tools → Install JDK(17) and NodeJs(16)→ Click on Apply and Save
+Goto Manage Jenkins → Tools → Install jdk17(jdk-17.0.8.1+1) and node16(NodeJS 16.2.0) → Click on Apply and Save
 
 
 ### SonarQube
 
-Create the token
+Create the token: goto Administration → security  → users  → click on update token option  → put a name(jenkins)  → click on generate option  → copy this token. 
 
-Goto Jenkins Dashboard → Manage Jenkins → Credentials → Add Secret Text. It should look like this
+Goto Jenkins Dashboard → Manage Jenkins → Credentials → click on system  → click on global credentials  → Add Secret Text  → in the secret section put secret text  → For ID put Sonar-token and same for description.
 
-After adding sonar token
+After that go back to → Manage Jenkins → system →  in SonarQube servers → click on SonarQube installation → in name put sonar-server → for url "http://44.196.12.184:9000/" → for authentication token select "Sonar-token"
 
 Click on Apply and Save
 
-**The Configure System option** is used in Jenkins to configure different server
+After that go back to → Manage Jenkins → Tools → click on SonarQube Scanner installation → in name put sonar-scanner → don't need to change version
 
-**Global Tool Configuration** is used to configure different tools that we install using Plugins
+Then click on New item → in name provide Netflix → select Pipeline → click on ok option → click on pipeline option → need to paste pipeline mentioned below → click on apply → save 
 
-We will install a sonar scanner in the tools.
-
-Create a Jenkins webhook
+Finally, run the pipeline by clicking on Build Now 
 
 1. **Configure CI/CD Pipeline in Jenkins:**
 - Create a CI/CD pipeline in Jenkins to automate your application deployment.
