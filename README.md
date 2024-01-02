@@ -77,7 +77,24 @@
     docker rmi -f netflix
     ```
 
-It will show an error cause you need API key
+It will show an error cause you need an API key
+
+Check whether any server is running or not:
+```
+docker ps
+```
+If any server running:
+```
+docker stop <containerID>
+```
+For removing the container:
+```
+docker rm <containerID>
+```
+Again check whether any server is running or not:
+```
+docker ps
+```
 
 **Step 4: Get the API Key:**
 
@@ -92,7 +109,11 @@ It will show an error cause you need API key
 Now recreate the Docker image with your api key:
 ```
 docker build --build-arg TMDB_V3_API_KEY=<your-api-key> -t netflix .
-example: docker build --build-arg TMDB_V3_API_KEY=151e1a34b6dd2b788db3c9670f0d6757 -t netflix .
+ docker build --build-arg TMDB_V3_API_KEY=151e1a34b6dd2b788db3c9670f0d6757 -t netflix .
+```
+example:
+```
+docker build --build-arg TMDB_V3_API_KEY=151e1a34b6dd2b788db3c9670f0d6757 -t netflix .
 ```
 
 **Phase 2: Security**
