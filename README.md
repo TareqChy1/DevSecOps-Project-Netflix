@@ -770,7 +770,7 @@ That's it! You've successfully installed and set up Grafana to work with Prometh
               body: "Project: ${env.JOB_NAME}<br/>" +
                   "Build Number: ${env.BUILD_NUMBER}<br/>" +
                   "URL: ${env.BUILD_URL}<br/>",
-              to: 'postbox.aj99@gmail.com',  #change Your mail
+              to: 'tareqfarhadbd@gmail.com',  #change Your mail
               attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
           }
      }
