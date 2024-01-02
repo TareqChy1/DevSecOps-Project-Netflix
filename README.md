@@ -146,6 +146,7 @@ docker run -d --name netflix -p 8081:80 netflix:latest
         ```
         to scan image using trivy
         ```
+        docker images
         trivy image <imageid>
         ```
         
