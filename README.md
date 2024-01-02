@@ -186,7 +186,7 @@ docker run -d --name netflix -p 8081:80 netflix:latest
       ```
     - Access Jenkins in a web browser using the public IP of your EC2 instance.
         publicIp:8080
-    - For getting the password enter this command in the ec2 ubuntu instance:
+    - To get the password enter this command in the ec2 ubuntu instance:
       
       ```
       sudo cat /var/lib/jenkins/secrets/initialAdminPassword 
@@ -317,9 +317,27 @@ Certainly, here are the instructions without step numbers:
   - Enter your DockerHub credentials (Username and Password) and give the credentials an ID (e.g., "docker").
   - Click "OK" to save your DockerHub credentials.
 
-Now, you have installed the Dependency-Check plugin, configured the tool, and added Docker-related plugins along with your DockerHub credentials in Jenkins. Go to "Manage Jenkins" → Tools → Click on Dependency-Check installations → in name put "DP-Check" → click on install automatically → select install from GitHub.com → version will be  dependency-check 8.4.0
+Now, you have installed the Dependency-Check plugin, configured the tool, and added Docker-related plugins along with your DockerHub credentials in Jenkins. 
+- Go to "Manage Jenkins" → Tools → Click on Dependency-Check installations → in name put "DP-Check" → click on install automatically → select install from GitHub.com → version will be  dependency-check 8.4.0
+- Then click on the Docker Installation section → in the name put docker → click on install automatically → select install from docker.com → Version latest →click apply then save. 
 
-Then click on the Docker Installation section → in the name put docker → click on install automatically → select install from docker.com → Version latest →click apply then save. 
+Check whether any server is running or not:
+```
+docker ps
+```
+If any server running:
+```
+docker stop <containerID>
+```
+For removing the container:
+```
+docker rm <containerID>
+```
+Again check whether any server is running or not:
+```
+docker ps
+```
+
 You can now proceed with configuring your Jenkins pipeline to include these tools and credentials in your CI/CD process.
 
 ```groovy
