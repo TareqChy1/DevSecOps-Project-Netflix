@@ -317,7 +317,10 @@ Certainly, here are the instructions without step numbers:
   - Enter your DockerHub credentials (Username and Password) and give the credentials an ID (e.g., "docker").
   - Click "OK" to save your DockerHub credentials.
 
-Now, you have installed the Dependency-Check plugin, configured the tool, and added Docker-related plugins along with your DockerHub credentials in Jenkins. You can now proceed with configuring your Jenkins pipeline to include these tools and credentials in your CI/CD process.
+Now, you have installed the Dependency-Check plugin, configured the tool, and added Docker-related plugins along with your DockerHub credentials in Jenkins. Go to "Manage Jenkins" → Tools → Click on Dependency-Check installations → in name put "DP-Check" → click on install automatically → select install from GitHub.com → version will be  dependency-check 8.4.0
+
+Then click on the Docker Installation section → in the name put docker → click on install automatically → select install from docker.com → Version latest →click apply then save. 
+You can now proceed with configuring your Jenkins pipeline to include these tools and credentials in your CI/CD process.
 
 ```groovy
 
