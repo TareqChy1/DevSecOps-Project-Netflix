@@ -313,7 +313,7 @@ Certainly, here are the instructions without step numbers:
   - Go to "Dashboard" → "Manage Jenkins" → "Manage Credentials."
   - Click on "System" and then "Global credentials (unrestricted)."
   - Click on "Add Credentials" on the left side.
-  - Choose "Secret text" as the kind of credentials.
+  - Choose "Username with password" as the kind of credentials.
   - Enter your DockerHub credentials (Username and Password) and give the credentials an ID (e.g., "docker").
   - Click "OK" to save your DockerHub credentials.
 
