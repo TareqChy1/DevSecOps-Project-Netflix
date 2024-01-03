@@ -795,7 +795,7 @@ Step 1: Aws cluster creation
 - Click on Next
 - Finally create.
 
-Once the cluster is created go to EKS --> Clusters --> Netflix --> Compute --> click on *Add node group*
+Step 2: Once the cluster is created go to EKS --> Clusters --> Netflix --> Compute --> click on *Add node group*
 - Name: nodes
 - Node IAM role: AmazonEKSNodeRole ([Link](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html#create-worker-node-role))
 - Click on Next
@@ -804,6 +804,41 @@ Once the cluster is created go to EKS --> Clusters --> Netflix --> Compute --> c
 - Click on Next
 - Click on Next
 - Click on Create
+
+## ArgoCD installation :
+Step 1: 
+- Set the context to start the cluster:
+```
+aws eks update-kubeconfig --name Netflix --region us-east-1
+```
+- Then check is there any pods.
+```
+kubectl get ns
+kubectl get pods
+```
+- Install ArgoCD [Link](https://archive.eksworkshop.com/intermediate/290_argocd/install/):
+```
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/v2.4.7/manifests/install.yaml
+```
+- To check ArgoCD install:
+```
+kubectl get ns
+```
+- To check pods for ArgoCD are up and running:
+```
+kubectl get all -n argocd
+```
+- Expose argocd-server:- by default argocd-server is not publicly exposed. For the purpose of this workshop, we will use a Load Balancer to make it usable:
+```
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+```
+- Wait about 2 minutes for the LoadBalancer creation
+```
+export ARGOCD_SERVER=`kubectl get svc argocd-server -n argocd -o json | jq --raw-output '.status.loadBalancer.ingress[0].hostname'`
+```
+## HELM installation : [Link](https://helm.sh/docs/intro/install/)
+
 
 
 ## Monitor Kubernetes with Prometheus
