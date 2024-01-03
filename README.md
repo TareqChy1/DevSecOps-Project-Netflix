@@ -807,6 +807,7 @@ Step 2: Once the cluster is created go to EKS --> Clusters --> Netflix --> Compu
 
 ## ArgoCD installation :
 Step 1: 
+- Connect with aws-cli(section:Create an IAM group and user) [Link](https://ci.mines-stetienne.fr/cps2/course/cloud/labs/03-aws-cli-sdk-java.html)
 - Set the context to start the cluster:
 ```
 aws eks update-kubeconfig --name Netflix --region us-east-1
