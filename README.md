@@ -742,7 +742,7 @@ That's it! You've successfully installed and set up Grafana to work with Prometh
     - Integrate Jenkins with Prometheus to monitor the CI/CD pipeline.
 
 
-**Phase 11: Notification**
+**Phase 5: Notification**
 
 - Email Integration With Jenkins and Plugin Setup:
    - Install the "Email Extension" Plugin in Jenkins.
