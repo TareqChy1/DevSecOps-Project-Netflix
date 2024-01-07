@@ -1,4 +1,4 @@
-# Deploy Netflix Clone on Cloud using Jenkins - DevSecOps Project!
+# DevSecOps Pipeline Project: Deploy Netflix Clone on Kubernetes
 
 <div align="center">
   <a href="http://netflix-clone-with-tmdb-using-react-mui.vercel.app/">
